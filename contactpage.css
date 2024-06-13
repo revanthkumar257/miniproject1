@@ -84,11 +84,17 @@ button:hover {
     color: #f40c0cbb;
     margin-right: 10px;
 }
-@media screen and(max-width: 768px){
+@media screen and (max-width: 768px){
     .container{
         padding:20px;
     }
     .contact-wrapper{
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+
+    }
+    .contact-information {
+        order: 2; 
+        padding: 20px 40px;
     }
 }
