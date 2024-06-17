@@ -1,0 +1,54 @@
+.search-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.location {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-item-top {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.search-item-bottom {
+    font-size: 14px;
+    color: grey;
+    margin-top: 2px;
+    border: none;
+    outline: none;
+    font-family: 'airbnb-light';
+}
+
+.search-item input[type="text"],
+.search-item input[type="number"] {
+    border: none;
+    font-family: 'airbnb-light';
+    font-size: 14px;
+    color: grey;
+    margin-top: 2px;
+    outline: none;
+}
+
+.search-item input[type="text"]:hover,
+.search-item input[type="text"]:focus,
+.search-item input[type="number"]:hover,
+.search-item input[type="number"]:focus {
+    border-bottom: 1px solid rgb(244, 244, 244);
+}
+
+#search-button {
+    padding: 10px;
+    background-color: #ff5a5f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'airbnb-light';
+}
+
+#search-results {
+    margin-top: 20px;
+}

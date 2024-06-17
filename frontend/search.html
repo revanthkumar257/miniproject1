@@ -1,0 +1,21 @@
+<div class="search-item">
+    <div class="location">
+        <b class="search-item-top">Location</b>
+        <input type="text" class="search-item-bottom" placeholder="Where are you going?" id="location-input" list="location-suggestions">
+        <datalist id="location-suggestions">
+            <!-- Sample locations; replace with dynamic data as needed -->
+            <option value="New York"></option>
+            <option value="Los Angeles"></option>
+            <option value="Paris"></option>
+            <option value="Tokyo"></option>
+        </datalist>
+    </div>
+</div>
+<div class="search-item">
+    <div class="location">
+        <b class="search-item-top">Guests</b>
+        <input type="number" class="search-item-bottom" placeholder="Add guests" min="1" id="guests-input">
+    </div>
+</div>
+<button id="search-button">Search</button>
+<div id="search-results"></div>
