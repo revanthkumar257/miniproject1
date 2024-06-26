@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>New Booking</h1>
+    <form action="{{ url_for('new_booking') }}" method="post">
+        <label for="guest_id">Guest</label>
+        <select id="guest_id" name="guest_id" required>
+            {% for user in users %}
+            <option value="{{ user.id }}">{{ user.username }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="accommodation_id">Accommodation</label>
+        <select id="accommodation_id" name="accommodation_id" required>
+            {% for accommodation in accommodations %}
+            <option value="{{ accommodation.id }}">{{ accommodation.title }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="check_in_date">Check-in Date</label>
+        <input type="date" id="check_in_date" name="check_in_date" required>
+        
+        <label for="check_out_date">Check-out Date</label>
+        <input type="date" id="check_out_date" name="check_out_date" required>
+        
+        <label for="total_price">Total Price</label>
+        <input type="number" id="total_price" name="total_price" step="0.01" required>
+        
+        <label for="is_paid">Is Paid</label>
+        <input type="checkbox" id="is_paid" name="is_paid">
+        
+        <button type="submit">Add Booking</button>
+    </form>
+</body>
+</html>

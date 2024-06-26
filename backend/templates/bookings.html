@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bookings</h1>
+    <a href="{{ url_for('new_booking') }}" class="button">Add New Booking</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Guest ID</th>
+            <th>Accommodation ID</th>
+            <th>Check-in Date</th>
+            <th>Check-out Date</th>
+            <th>Total Price</th>
+            <th>Is Paid</th>
+            <th>Actions</th>
+        </tr>
+        {% for booking in bookings %}
+        <tr>
+            <td>{{ booking.id }}</td>
+            <td>{{ booking.guest_id }}</td>
+            <td>{{ booking.accommodation_id }}</td>
+            <td>{{ booking.check_in_date }}</td>
+            <td>{{ booking.check_out_date }}</td>
+            <td>{{ booking.total_price }}</td>
+            <td>{{ booking.is_paid }}</td>
+            <td>
+                <a href="{{ url_for('edit_booking', id=booking.id) }}" class="button">Edit</a>
+                <form action="{{ url_for('delete_booking', id=booking.id) }}" method="post" style="display:inline;">
+                    <button type="submit" class="button" style="background-color: #f44336;">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
